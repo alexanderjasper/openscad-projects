@@ -7,16 +7,17 @@
     https://github.com/cschneid/MultiConnectOpenSCAD
 */
 
-dimpleScale = 1; //[0.5:.05:1.5]
-//Scale the size of slots in the back (1.015 scale is default for a tight fit. Increase if your finding poor fit. )
-slotTolerance = 1.00; //[0.925:0.005:1.075]
-//Move the slot in (positive) or out (negative)
-slotDepthMicroadjustment = 0.05; //[-.5:0.05:.5]
-onRampEnabled = true;
-//frequency of slots for on-ramp. 1 = every slot; 2 = every 2 slots; etc.
-onRampEveryXSlots = 1;
-
-module multiconnectBack(backWidth, backHeight, distanceBetweenSlots = 25, slotQuickRelease = false) {
+module multiconnectBack(
+  backWidth,
+  backHeight,
+  distanceBetweenSlots = 25,
+  slotQuickRelease = false,
+  dimpleScale = 1, //[0.5:.05:1.5]
+  slotTolerance = 1.00, //[0.925:0.005:1.075] Scale the size of slots in the back (1.015 scale is default for a tight fit. Increase if your finding poor fit.)
+  slotDepthMicroadjustment = 0.05, //[-.5:0.05:.5] Move the slot in (positive) or out (negative)
+  onRampEnabled = true, //[true, false]
+  onRampEveryXSlots = 1 //frequency of slots for on-ramp. 1 = every slot; 2 = every 2 slots; etc.
+) {
   //slot count calculates how many slots can fit on the back. Based on internal width for buffer. 
   //slot width needs to be at least the distance between slot for at least 1 slot to generate
   let (backWidth = max(backWidth, distanceBetweenSlots), backHeight = max(backHeight, 25), slotCount = floor(backWidth / distanceBetweenSlots), backThickness = 6.5) {
