@@ -10,7 +10,7 @@
 module multiconnectBack(
   backWidth,
   backHeight,
-  distanceBetweenSlots = 25,
+  distanceBetweenSlots = 28,
   slotQuickRelease = false,
   dimpleScale = 1, //[0.5:.05:1.5]
   slotTolerance = 1.00, //[0.925:0.005:1.075] Scale the size of slots in the back (1.015 scale is default for a tight fit. Increase if your finding poor fit.)
